@@ -1,0 +1,21 @@
+use invoic;
+select name from CUSTOMER where cust_id in(select cust_id from INVOICE_MASTER where inv_date='2020-07-26');
+select pname,price from PRODUCT where p_id in(select p_id  from INVOICE_ITEM);
+select pname from PRODUCT where p_id in(select p_id from INVOICE_ITEM where quantity>3);
+select pname from PRODUCT where p_id not in(select p_id from INVOICE_ITEM);
+select name from CUSTOMER where cust_id in(select cust_id from INVOICE_MASTER where inv_id in(select inv_id from INVOICE_ITEM where p_id in(select p_id from PRODUCT where pname='powder')and (select p_id from PRODUCT where pname='pencil')));
+select * from INVOICE_ITEM where inv_id in(select inv_id from INVOICE_MASTER where cust_id in(select cust_id from CUSTOMER where name='abu'));
+select distinct name from CUSTOMER where cust_id in(select cust_id from INVOICE_MASTER where inv_id in(select inv_id from INVOICE_ITEM where quantity>=2));
+select pname,quantity from PRODUCT natural join INVOICE_ITEM;
+select * from INVOICE_MASTER natural join INVOICE_ITEM natural join PRODUCT natural join CUSTOMER where inv_date='2020-07-26';
+select name,pname,inv_date from CUSTOMER natural join PRODUCT natural join INVOICE_MASTER natural join INVOICE_ITEM where pname='soap';
+select * from CUSTOMER left join INVOICE_MASTER natural join INVOICE_ITEM natural join PRODUCT on CUSTOMER.cust_id=INVOICE_MASTER.cust_id;
+create view CUSTOMERs as select name from CUSTOMER natural join INVOICE_MASTER;
+select * from CUSTOMERS;
+create view INVOICE_PRODUCTS as select pname,quantity,inv_id,p_id as product_id from PRODUCT natural join INVOICE_ITEM;
+select * from INVOICE_PRODUCTS;
+select cust_id as all_id from CUSTOMER union select p_id from PRODUCT;
+select p_id,pname,price+5 from PRODUCT;
+select * from CUSTOMER where phn_no is null and city='kollam';
+select pname from PRODUCT where p_id in(select p_id from INVOICE_ITEM where quantity=2);
+
