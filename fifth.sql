@@ -24,6 +24,6 @@ insert into student values(7,'appu','bca');
 savepoint t1;
 insert into student values(8,'varun','bca');
 select * from student;
-rollback to t1;
+rollback;
 select * from student;
 
