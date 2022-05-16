@@ -16,6 +16,6 @@ create view INVOICE_PRODUCTS as select pname,quantity,inv_id,p_id as product_id 
 select * from INVOICE_PRODUCTS;
 select cust_id as all_id from CUSTOMER union select p_id from PRODUCT;
 select p_id,pname,price+5 from PRODUCT;
-select * from CUSTOMER where phn_no is null and city='kollam';
+select * from CUSTOMER where phn_no is null and city='tvm';
 select pname from PRODUCT where p_id in(select p_id from INVOICE_ITEM where quantity=2);
 
