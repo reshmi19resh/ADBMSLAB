@@ -1,0 +1,8 @@
+->use INVOICE
+->db.CUSTOMER.find({$or:[{"city":"Kozhikode"},{"city":"Malapuram"}]}).pretty()
+->db.CUSTOMER.find({"age":{$lt:"50"}}).pretty()
+->db.CUSTOMER.find({"age":{$gte:"40"}}).pretty()
+->db.CUSTOMER.find({"city":{$ne:"kozhikode"}}).pretty()
+->db.CUSTOMER.find({$nor:[{"city":"kochi"},{"city":"Malapuram"}]}).pretty()
+->db.PRODUCT.distinct("productName")
+->
