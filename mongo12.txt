@@ -1,0 +1,15 @@
+->use INVOICE
+->db.createCollection("CUSTOMER")
+->db.createCollection("PRODUCT")
+->show collections
+->db.CUSTOMER.insertOne({name: "Anju",address: "Anju Bhavan",city: "Malapuram",age:"40",phone_no: "12356789"})db.CUSTOMER.insertMany([{name: "Sarath",address: "Sarath Nivas",city: "Calicut",age:"45",phone_no: "9886409789"},{name: "Nayana",address: "Nayans",city: "Kozhikode",age:"50"
+ ,phone_no: "97890642"},{name: "jimin",address: "abcd",city: "kozhikode",age:"34",phone_no:"9863665432"},{name: "Surya",address: "white house",city: "wandoor",age:"43",phone_no:"9048857036"}])
+->db.PRODUCT.insertMany([{productName:"pen",price:"10",quantity:"10"},{productName:"pencil",price:"10",quantity:"3"},{productName:"sharpner",price:"5",quantity:"4"},{productName:"eraser",price:"8",quantity:"7"}])
+->db.CUSTOMER.find()
+->db.CUSTOMER.find().pretty()
+->db.PRODUCT.find().pretty()
+->db.CUSTOMER.updateOne({"city":"wandoor"},{$set:{"city":"kochi"}})
+->db.CUSTOMER.find({"city":"kochi"}).pretty()
+->db.CUSTOMER.deleteOne({city:"Calicut"})
+->db.CUSTOMER.find().pretty()
+
