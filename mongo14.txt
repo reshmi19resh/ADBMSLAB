@@ -1,0 +1,6 @@
+->db.CUSTOMER.find().sort({name:1}).pretty()
+->db.CUSTOMER.aggregate( [{ $count: "city" }])
+->db.CUSTOMER.aggregate([{$group:{_id: "$city",total:{$sum:1}}}])
+->db.CUSTOMER.aggregate([{$group:{_id:"",min_age:{$min:"$age"},max_age:{$max:"$age"}}}])
+->db.CUSTOMER.aggregate([{$group:{_id:"$city",min_age:{$min:"$age"},max_age:{$max:"$age"}}}])
+->
